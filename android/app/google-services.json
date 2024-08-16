@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "360274576760",
+    "firebase_url": "https://pub-s-pizza-default-rtdb.firebaseio.com",
+    "project_id": "pub-s-pizza",
+    "storage_bucket": "pub-s-pizza.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360274576760:android:18d8a38cee9366369c748d",
+        "android_client_info": {
+          "package_name": "com.example.cashierApp.cashier_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "360274576760-m4qd3v0seqfqelkrlffeimimeqpnktq3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cashierApp.cashier_app",
+            "certificate_hash": "0a3e8693c5b251e84d6dbe755004215396eeeefb"
+          }
+        },
+        {
+          "client_id": "360274576760-4qk1b38t78ra7b3otie8umsl4qogf5rs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbsejYV39898VRC-8D6Gs1qS9KTc5vgY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "360274576760-4qk1b38t78ra7b3otie8umsl4qogf5rs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "360274576760-1hc1qg389ub8optmkee6glaoua0sb9p1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "pubs.com.pubsPizza"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360274576760:android:84ae9426a8c8c70a9c748d",
+        "android_client_info": {
+          "package_name": "pubs.com.pubs_pizza"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "360274576760-s93uvbn0mav1e7tg5bpogcl4ih7cdfb1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pubs.com.pubs_pizza",
+            "certificate_hash": "0a3e8693c5b251e84d6dbe755004215396eeeefb"
+          }
+        },
+        {
+          "client_id": "360274576760-4qk1b38t78ra7b3otie8umsl4qogf5rs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbsejYV39898VRC-8D6Gs1qS9KTc5vgY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "360274576760-4qk1b38t78ra7b3otie8umsl4qogf5rs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "360274576760-1hc1qg389ub8optmkee6glaoua0sb9p1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "pubs.com.pubsPizza"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
