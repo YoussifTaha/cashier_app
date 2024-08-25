@@ -13,18 +13,18 @@ Widget outlinedButton({
   double width = double.infinity,
   required function,
   required String text,
-  MaterialStateProperty<OutlinedBorder?>? shape,
+  WidgetStateProperty<OutlinedBorder?>? shape,
   ButtonStyle? style,
-  MaterialStateProperty<BorderSide?>? side,
+  WidgetStateProperty<BorderSide?>? side,
 }) =>
     SizedBox(
       height: height,
       width: width,
       child: OutlinedButton(
         style: ButtonStyle(
-            shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+            shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10))),
-            side: const MaterialStatePropertyAll(
+            side: const WidgetStatePropertyAll(
               BorderSide(
                   style: BorderStyle.solid,
                   strokeAlign: -3.0,
@@ -69,38 +69,48 @@ Widget button({
       ),
     );
 
-Widget defaultform({
-  required TextEditingController controller,
-  required TextInputType type,
-  Function(String)? onSubmit,
-  EdgeInsetsGeometry? padding,
-  onChanged,
-  onTap,
-  TextStyle? textStyle,
-  TextStyle? hintStyle,
-  TextStyle? labelStyle,
-  validate,
-  String? labeltext,
-  IconData? prefix,
-  bool isPassword = false,
-  IconData? suffix,
-  suffixPressed,
-  String? hintText,
-  InputBorder? border,
-  InputBorder? errorBorder,
-  InputBorder? enabledBorder,
-  InputBorder? focusedBorder,
-  InputBorder? disabledBorder,
-  Color? prefixIconColor,
-  Color? suffixIconColor,
-  Color? focusColor,
-  Color? fillColor,
-  Icon? icon,
-}) =>
+Widget defaultForm(
+        {required TextEditingController controller,
+        required TextInputType type,
+        double? height,
+        double? width,
+        Function(String)? onSubmit,
+        EdgeInsetsGeometry? padding,
+        onChanged,
+        onTap,
+        TextStyle? textStyle,
+        TextStyle? hintStyle,
+        TextStyle? labelStyle,
+        validate,
+        String? labeltext,
+        IconData? prefix,
+        bool isPassword = false,
+        IconData? suffix,
+        suffixPressed,
+        String? hintText,
+        InputBorder? border,
+        InputBorder? errorBorder,
+        InputBorder? enabledBorder,
+        InputBorder? focusedBorder,
+        InputBorder? disabledBorder,
+        int? maxLines,
+        Color? prefixIconColor,
+        Color? suffixIconColor,
+        Color? focusColor,
+        Color? fillColor,
+        Icon? icon,
+        Function(String?)? onSaved,
+        FloatingLabelBehavior? floatingLabelBehavior,
+        bool? alignLabelWithHint}) =>
     Container(
+      alignment: Alignment.center,
+      width: width,
+      height: height,
       padding: padding,
       decoration: const BoxDecoration(),
       child: TextFormField(
+        maxLines: maxLines,
+        onSaved: onSaved,
         style: textStyle,
         controller: controller,
         validator: validate,
@@ -109,6 +119,8 @@ Widget defaultform({
         keyboardType: type,
         obscureText: isPassword,
         decoration: InputDecoration(
+          floatingLabelBehavior: floatingLabelBehavior,
+          alignLabelWithHint: alignLabelWithHint,
           prefixIcon: prefix != null
               ? IconButton(
                   icon: Icon(
@@ -117,6 +129,7 @@ Widget defaultform({
                   onPressed: () {},
                 )
               : null,
+          filled: true,
           fillColor: fillColor,
           disabledBorder: disabledBorder,
           focusedBorder: focusedBorder,
@@ -141,7 +154,6 @@ Widget defaultform({
         onTap: onTap,
       ),
     );
-
 Widget mydivider() => Container(
       width: double.infinity,
       height: 1.0,

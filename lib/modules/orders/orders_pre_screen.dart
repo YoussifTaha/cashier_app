@@ -96,72 +96,76 @@ class _OrdersPreScreenState extends State<OrdersPreScreen> {
       return snapshot.value == null;
     }
 
-    void showBusyAlertDialog(
-      BuildContext context,
-    ) {
-      showAdaptiveDialog(
-        context: context,
-        builder: (BuildContext context) => AlertDialog.adaptive(
-          backgroundColor: Colors.white,
-          title: const Text('Busy For How Long?',
+  void showBusyAlertDialog(BuildContext context) {
+  showDialog(
+    barrierDismissible: true,
+    context: context,
+    builder: (BuildContext context) => SizedBox(
+      child: Material(
+        color: Colors.transparent, // Makes the background transparent
+        child: SizedBox(
+          height: 200,
+          child: AlertDialog(
+            backgroundColor: Colors.white,
+            title: const Text(
+              'Busy For How Long?',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
                 fontSize: 16,
-              )),
-          actions: [
-            Form(
-              key: formkey,
-              child: Column(
-                children: [
-                  defaultform(
-                    controller: minutesController,
-                    type: TextInputType.number,
-                    validate: (value) {
-                      if (value!.isEmpty) {
-                        return 'Enter Time';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      if (formkey.currentState!.validate()) {
-                        FirebaseDatabase.instance
-                            .ref()
-                            .child('busyTime')
-                            .set(int.tryParse(minutesController.text) ?? 0);
-                        FirebaseDatabase.instance.ref().child('busy').set(true);
-                        Navigator.pop(context);
-                      }
-                    },
-                    child: Container(
-                        alignment: Alignment.center,
-                        height: 40,
-                        width: 80,
-                        decoration: BoxDecoration(
-                          color: primaryOrange,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Text('OK',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 14,
-                            ))),
-                  ),
-                ],
               ),
             ),
-          ],
+            content: Form(
+              key: formkey,
+              child: defaultForm(
+                controller: minutesController,
+                type: TextInputType.number,
+                validate: (value) {
+                  if (value!.isEmpty) {
+                    return 'Enter Time';
+                  }
+                  return null;
+                },
+              ),
+            ),
+            actions: [
+              InkWell(
+                onTap: () {
+                  if (formkey.currentState!.validate()) {
+                    FirebaseDatabase.instance
+                        .ref()
+                        .child('busyTime')
+                        .set(int.tryParse(minutesController.text) ?? 0);
+                    FirebaseDatabase.instance.ref().child('busy').set(true);
+                    Navigator.pop(context);
+                  }
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 40,
+                  width: 80,
+                  decoration: BoxDecoration(
+                    color: primaryOrange,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Text(
+                    'OK',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
-      );
-    }
-
+      ),
+    ),
+  );
+}
     String pizzaId = '';
     return Directionality(
       textDirection: TextDirection.ltr,

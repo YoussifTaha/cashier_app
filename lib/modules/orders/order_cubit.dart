@@ -60,15 +60,15 @@ class OrderCubit extends Cubit<OrderStates> {
 
     cartReference.remove();
 
-    QuerySnapshot cart = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(uId)
-        .collection('cart')
-        .get();
+    // QuerySnapshot cart = await FirebaseFirestore.instance
+    //     .collection('users')
+    //     .doc(uId)
+    //     .collection('cart')
+    //     .get();
 
-    for (var cartDoc in cart.docs) {
-      cartDoc.reference.delete();
-    }
+    // for (var cartDoc in cart.docs) {
+    //   cartDoc.reference.delete();
+    // }
   }
 
   Future<void> moveOrderToPreparingOrders({

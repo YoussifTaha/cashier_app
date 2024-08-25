@@ -1,3 +1,4 @@
+import 'package:cashier_app/firebase_options.dart';
 import 'package:cashier_app/modules/orders/orders_pre_screen.dart';
 import 'package:cashier_app/shared/bloc_observer.dart';
 
@@ -15,7 +16,9 @@ import 'shared/styles/themes.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform, // Use the options here
+  );
   await CashHelper.init();
 
   Bloc.observer = MyBlocObserver();
